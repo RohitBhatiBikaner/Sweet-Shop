@@ -17,11 +17,11 @@
     @endif
 <div class="mb-3">
     <label for="name">Product Name:</label>
-    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Product Name" value="Soan Papdi">
+    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Product Name" value="{{old('name')??'Soan Papdi'}}">
 </div>
 <div class="mb-3">
     <label for="flavour">Product Flavour :</label>
-    <input type="text" class="form-control" name="flavour" id="flavour" placeholder="Enter Flavour" list="sug" >
+    <input type="text" class="form-control" name="flavour" id="flavour" value="{{old('flavour')}}" placeholder="Enter Flavour" list="sug" >
     <datalist id="sug" > 
         <option value="Almond & Pistachio">
         <option value="Chocolate">
@@ -70,7 +70,7 @@
 </div>
 <div class="mb-3">
     <label for="description" class="form-label">Product Description :</label>
-    <textarea name="description" placeholder="Product Description" id="description" class="form-control" cols="30" rows="6"></textarea>
+    <textarea name="description" placeholder="Product Description" id="description" class="form-control" cols="30" rows="6">{{old('description')}}</textarea>
 </div>
 <div class="mb-3 text-center">
     <button class="btn btn-success">Save</button>

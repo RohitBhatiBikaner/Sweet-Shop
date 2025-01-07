@@ -34,17 +34,21 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $request->name=trim($request->name);
         $request->validate([
-            'name'=>'min:3|max:40' 
+            'name'=>'min:3|max:40|required', 
+            'main_image'=>'image|required' 
         ]);
+       $fileimage=time()."_ganpati_".$request->main_image->getClientOriginalName();
+       $request->main_image->move("./images",$fileimage);
         $productinfo=[
             'name'=>$request->name,
             'flavour'=>$request->flavour,
             'description'=>$request->description,
-            'main_image'=>""
+            'main_image'=>$fileimage  
         ];
        $product_id=product::create($productinfo);
-        // dd($product_id);
+       
     }
 
     /**
