@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->default("Soan Papdi");
             $table->string('flavour')->default('Regular');
-            $table->longText('description')->nullable();
+            $table->longText('Description')->nullable();
             $table->string('main_image')->nullable();
             $table->timestamps();
         });

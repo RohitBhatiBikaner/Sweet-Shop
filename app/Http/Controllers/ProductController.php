@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
+use App\Models\media;
+use App\Models\price;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,6 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -21,6 +24,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        
         return view("product.create");
     }
 
@@ -30,6 +34,17 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name'=>'min:3|max:40' 
+        ]);
+        $productinfo=[
+            'name'=>$request->name,
+            'flavour'=>$request->flavour,
+            'description'=>$request->description,
+            'main_image'=>""
+        ];
+       $product_id=product::create($productinfo);
+        // dd($product_id);
     }
 
     /**

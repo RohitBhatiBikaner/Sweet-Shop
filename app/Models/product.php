@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class product extends Model
 {
     //
+    protected $fillable=['name','flavour','description','main_image'];
 }

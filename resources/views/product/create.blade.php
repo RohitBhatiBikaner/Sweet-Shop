@@ -1,16 +1,27 @@
 @extends('layouts.app')
 @section('content')
-<div class="container border">
+<form action="/product" method="post" enctype="multipart/form-data" >
+    @csrf
+<div class="container border" style="background-color: peru">
     <div class="alert text-primary h2 text-center text-decoration-underline">
         Product Form
     </div>
+    @if($errs=$errors->all())
+    <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $er )
+        @endforeach
+     <li> {{$er}} </li>   
+    </ul>
+    </div>
+    @endif
 <div class="mb-3">
     <label for="name">Product Name:</label>
     <input type="text" class="form-control" name="name" id="name" placeholder="Enter Product Name" value="Soan Papdi">
 </div>
 <div class="mb-3">
     <label for="flavour">Product Flavour :</label>
-    <input type="text" class="form-control" name="name" id="flavour" placeholder="Enter Flavour" list="sug" >
+    <input type="text" class="form-control" name="flavour" id="flavour" placeholder="Enter Flavour" list="sug" >
     <datalist id="sug" > 
         <option value="Almond & Pistachio">
         <option value="Chocolate">
@@ -59,9 +70,13 @@
 </div>
 <div class="mb-3">
     <label for="description" class="form-label">Product Description :</label>
-    <textarea name="description" placeholder="Product Description" id="description" cols="30" rows="10"></textarea>
+    <textarea name="description" placeholder="Product Description" id="description" class="form-control" cols="30" rows="6"></textarea>
+</div>
+<div class="mb-3 text-center">
+    <button class="btn btn-success">Save</button>
 </div>
 </div>
+</form>
 <script>
     function cClone(){
         tot.value=parseInt(tot.value)+1;
