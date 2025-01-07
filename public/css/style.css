@@ -1,0 +1,117 @@
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #ffcc00;
+}
+
+.navbar .nav-link {
+    color: #333 !important;
+}
+
+.navbar .nav-link:hover {
+    color: #fff !important;
+}
+
+footer {
+    background-color: #343a40;
+}
+
+footer p {
+    margin: 0;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #e57373;
+}
+
+.card-body {
+    background-color: #fff5e5;
+}
+
+.btn-primary {
+    background-color: #ff6600;
+    border-color: #ff6600;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00;
+    border-color: #e65c00;
+}
+ */
+/* Body - Soft pastel peach background */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe5b4; /* Light Peach */
+}
+
+/* Navbar - Light background with soft yellow */
+.navbar {
+    background-color: #ffcc00; /* Bright Yellow for Navbar */
+}
+
+/* Navbar link styling */
+.navbar .nav-link {
+    color: #333 !important;
+}
+
+.navbar .nav-link:hover {
+    color: #fff !important;
+}
+
+/* Footer - Dark contrast for the footer */
+footer {
+    background-color: #343a40; /* Dark footer */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Card Styling - Soft card body background and rounded corners */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #e57373; /* Soft red */
+}
+
+.card-body {
+    background-color: #fff5e5; /* Light beige background for cards */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #ff6600; /* Sweet Orange */
+    border-color: #ff6600;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00;
+    border-color: #e65c00;
+}
+
+/* Carousel Styling - Ensure the images fit well */
+.carousel-item img {
+    object-fit: cover;
+    height: 400px; /* Fixed height for the carousel images */
+}
