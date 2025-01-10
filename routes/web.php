@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('home1');
 });
 
-Auth::routes();
+Auth::routes();//composer require ui bootsrap --auth | it is route of authentication 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-route::resource('product',ProductController::class);
+route::resource('product',ProductController::class);//resource handle his 7 function of controller

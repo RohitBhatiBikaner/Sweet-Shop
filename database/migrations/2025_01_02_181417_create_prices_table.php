@@ -17,6 +17,7 @@ return new class extends Migration
             $table->float('weight');
             $table->enum('weight_type',['gm','kg'])->default('gm');
             $table->integer('price');
+            $table->enum('madewith',['Vegetable Oil','Desi Ghee']);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });

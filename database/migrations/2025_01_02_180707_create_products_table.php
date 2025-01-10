@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('flavour')->default('Regular');
             $table->longText('Description')->nullable();
             $table->string('main_image')->nullable();
-            $table->timestamps();
+            $table->timestamps();//column name for database and his data type image save in string datatype
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('products');//this line for table rollback 
     }
 };
