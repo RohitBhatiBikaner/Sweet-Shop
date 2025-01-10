@@ -37,7 +37,8 @@ class ProductController extends Controller
         $request->name=trim($request->name);
         $request->validate([
             'name'=>'min:3|max:40|required', 
-           'main_image'=>'image|required' //for validate image and name
+           'main_image'=>'image|required', //for validate image and name
+           'other_image.*'=>'nullable|mimetypes:video/mp4,video/avi,video/mpeg,image/jpeg,image/png',
         ]);
        $fileimage=time()."_main_".$request->main_image->getClientOriginalName();//for save image
        $request->main_image->move("./images",$fileimage);//for move image in public folder
@@ -61,18 +62,44 @@ class ProductController extends Controller
             ];
             Price::create($priceinfo);
         }
-        $n=count($request->other_image);
-        for($i=1;$i<$n;$i++){
-    
-        $fileimage=time()."_other_".$request->other_image->getClientOriginalName();//for save image
-        $request->other_image[$i]->move("./images",$fileimage);//for move image in public folder
-        $ofile=[
-            'product_id'=>$productobject->id,
-            'filepath'=>$fileimage
+    //     $n=count($request->other_image);
+    //     for($i=1;$i<$n;$i++){
+    //     $fileimage=time()."_other_".($request->other_image->getClientOriginalName());//for save image
+    //     $tpy=$request->other_image[$i]->getClientMimeType();
+    //     $request->other_image[$i]->move("./images",$fileimage);//for move image in public folder
+    //     $ofile=[
+    //         'product_id'=>$productobject->id,
+    //         'filepath'=>$fileimage,
+    //         'file_type'=>substr($tpy,0,strpos($tpy,'/'))
+    //     ];
+    //     media::create($ofile);
+    // }
+    // }
+    $n = count($request->other_image);
+for ($i = 0; $i < $n; $i++) {
+    // Get the file object
+    $file = $request->other_image[$i];
+
+    // Ensure $file is an instance of UploadedFile
+    if ($file && $file instanceof \Illuminate\Http\UploadedFile) {
+        $fileimage = time() . "_other_" . $file->getClientOriginalName(); // Generate file name
+        $tpy = $file->getClientMimeType(); // Get file MIME type
+
+        // Move the file to the 'images' directory
+        $file->move("./images", $fileimage);
+
+        // Prepare data for the Media model
+        $ofile = [
+            'product_id' => $productobject->id,
+            'file_path' => $fileimage,
+            'file_type' => substr($tpy, 0, strpos($tpy, '/')),
         ];
+
+        // Save to the Media model
         media::create($ofile);
-    }
-    }
+    }}
+}
+
     /**
      * Display the specified resource.
      */
