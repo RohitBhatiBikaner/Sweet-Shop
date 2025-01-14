@@ -17,6 +17,14 @@ class ProductController extends Controller
         //
         
     }
+    // public function listing()
+    // {
+    //     //
+
+    //     return view("product.listing");
+        
+    // }
+
 
     /**
      * Show the form for creating a new resource.
@@ -130,5 +138,11 @@ for ($i = 0; $i < $n; $i++) {
     public function destroy(product $product)
     {
         //
+    }
+    public function listt(){
+        $data=product::with(['price','media'])->get();
+        // $info=product::with(['price','media'])->find(10); 2nd method fetch data
+        // dd($info);
+        return view("product.listing",compact('data'));
     }
 }
