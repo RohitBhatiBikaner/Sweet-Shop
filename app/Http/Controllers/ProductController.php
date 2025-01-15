@@ -114,6 +114,9 @@ for ($i = 0; $i < $n; $i++) {
     public function show(product $product)
     {
         //
+        // dd($product);
+        return view ("product.show",['info'=>$product]);
+
     }
 
     /**
@@ -145,4 +148,6 @@ for ($i = 0; $i < $n; $i++) {
         // dd($info);
         return view("product.listing",compact('data'));
     }
+    // public function cart(){
+    // }
 }
