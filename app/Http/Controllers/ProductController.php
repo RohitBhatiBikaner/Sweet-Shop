@@ -114,7 +114,7 @@ for ($i = 0; $i < $n; $i++) {
     public function show(product $product)
     {
         //
-        // dd($product);
+        // dd($product['media']);
         return view ("product.show",['info'=>$product]);
 
     }
@@ -150,4 +150,12 @@ for ($i = 0; $i < $n; $i++) {
     }
     // public function cart(){
     // }
+
+public function submitOrder(Request $request)
+{
+    dd($request);
+    $orders = $request->input('order');
+    // Process the orders (store in database, send email, etc.)
+    return redirect()->back()->with('success', 'Order submitted successfully!');
+}
 }
